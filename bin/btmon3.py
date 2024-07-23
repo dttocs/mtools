@@ -2972,7 +2972,7 @@ class MovingBuffer(object):
 
     def insert(self, timestamp, packet):
         dbgmsg('buffering packet ts:%d sn:%s' % (timestamp, packet['serial']))
-        bisect.insort(self.packets, (timestamp, packet))
+        bisect.insort(self.packets, (timestamp, packet), key=lambda r: r[0])
         if len(self.packets) > self.maxsize:
             del(self.packets[0])
 
