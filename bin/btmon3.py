@@ -1980,6 +1980,10 @@ class GEM48PBinaryPacket(BasePacket):
             for x in range(1, self.NUM_CHAN + 1):
                 c.append('ch%d_aws' % x)
                 c.append('ch%d_pws' % x)
+                if INCLUDE_CURRENT:
+                  c.append('ch%d_a' % x)
+                if INCLUDE_POWER:
+                  c.append('ch%d_w' % x)
             for x in range(1, self.NUM_PULSE + 1):
                 c.append('p%d' % x)
             for x in range(1, self.NUM_SENSE + 1):
